@@ -30,7 +30,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 
 //设置跨域处理头部
-app.all('/api', function (req, res, next) {
+app.all('*', function (req, res, next) {
     res.header("Access-Control-Allow-Origin", req.headers.origin);
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
     res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
@@ -61,11 +61,11 @@ app.use(function (req, res, next) {
     d.run(next);
 });
 
-app.use(express.static(path.join(__dirname, 'public/blog/build/dist')));
+
 var routerArr = ['login', 'user', 'information', 'webinfo', 'article', 'category', 'recommend','upload','linkfriend','comments'];
 routerArr.forEach(function (item) {
     var route = require('./routes/' + item);
-    app.use('/api/' + item, route);
+    app.use('/' + item, route);
 });
 
 
