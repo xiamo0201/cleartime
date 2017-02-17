@@ -4,7 +4,7 @@
     <p>个人介绍:{{ me.introduction }}</p>
     <p>个性签名:{{ me.sign }}</p>
     <p>微博账号:<a :href="me.weibo" target="_blank">{{ me.weibo }}</a></p>
-    <p>github:<a :href="me.github" target="_blank">{{ me.github }}</a></p>
+    <p @click="update()">github:<a :href="me.github" target="_blank">{{ me.github }}</a></p>
   </div>
 </template>
 
@@ -24,6 +24,12 @@
     mounted() {
       // 初始化hint
       this.fetchMe();
+    },
+    methods: {
+      update() {
+        localStorage.cc = 1;
+        console.log(localStorage);
+      },
     },
   };
 </script>

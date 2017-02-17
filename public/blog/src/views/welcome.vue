@@ -31,6 +31,7 @@
     methods: {
       closeWelcomePage() {
         this.weclome();
+        console.log(localStorage);
       },
     },
     mounted() {
