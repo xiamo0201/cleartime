@@ -61,7 +61,7 @@ app.use(function (req, res, next) {
     d.run(next);
 });
 
-
+app.use(express.static(path.join(__dirname, 'public/blog/build/dist')));
 var routerArr = ['login', 'user', 'information', 'webinfo', 'article', 'category', 'recommend','upload','linkfriend','comments'];
 routerArr.forEach(function (item) {
     var route = require('./routes/' + item);
